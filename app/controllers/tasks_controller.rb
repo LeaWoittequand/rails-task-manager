@@ -3,33 +3,33 @@ class TasksController < ApplicationController
 
 
   def index
-  @tasks = Task.all
+    @tasks = Task.all
   end
 
   def show
   end
 
   def new
-  @task = Task.new
+    @task = Task.new
   end
 
   def create
-  @task = Task.new(task_params)
-  @task.save
-  redirect_to task_path(@task)
+    @task = Task.new(task_params)
+    @task.save
+    redirect_to task_path(@task)
   end
 
   def edit
   end
 
   def update
-  @task.update(task_params)
-  redirect_to tasks_path
+    @task.update(task_params)
+    redirect_to tasks_path
   end
 
   def destroy
-  @task.destroy
-  redirect_to tasks_path
+    @task.destroy
+    redirect_to tasks_path
   end
 
   private
@@ -39,6 +39,6 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require(:task).permit(:name, :description)
+    params.require(:task).permit(:id, :name, :description)
   end
 end
